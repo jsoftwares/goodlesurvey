@@ -4,6 +4,10 @@ require('dotenv').config({path: './.env'});
 
 const app = express();
 
+app.get('/', (req, res) => {
+    res.send({success: true, message: "Welome"});
+})
+
 const PORT = process.env.PORT || 5000;
 const start = async () => {
     try {
