@@ -1,11 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config({path: './.env'});
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+if(process.env.NODE_ENV !== "production") require('dotenv').config({path: './.env'});
+
 
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send({success: true, message: "Welome"});
+    res.send({success: true, message: "Welcome"});
 })
 
 const PORT = process.env.PORT || 5000;
