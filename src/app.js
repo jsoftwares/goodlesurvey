@@ -1,15 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
 if(process.env.NODE_ENV !== "production") require('dotenv').config({path: './.env'});
+require('./services/passport'); //Not exporting/returning anything from our passport config, so no need to assign it to a variable
 
+const authRoutes = require('./routes/auth');
 
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send({success: true, message: "Welcome"});
-})
+
+app.use('/auth', authRoutes);
 
 const PORT = process.env.PORT || 5000;
 const start = async () => {
@@ -18,7 +17,7 @@ const start = async () => {
         //     useNewUrlParser: true, useUnisfiedTopology: true, useCreateIndex: true, useFindAndModify: false
         // });
         // console.log('GoodleLearn connected to MongoDB');
-        app.listen(PORT, () => console.log('GoodleLearn server is running on Port ', PORT ));
+        app.listen(PORT, () => console.log('GoodleSurvey server is running on Port ', PORT ));
         
         
     } catch (err) {
