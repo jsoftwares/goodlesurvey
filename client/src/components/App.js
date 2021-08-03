@@ -6,10 +6,7 @@ import * as actions from '../actions/index'
 
 import Header from "./Header";
 import Landing from './Landing';
-
-const Dashboard = () => {
-  return <h1>Dashboard</h1>
-};
+import Dashboard from './Dashboard';
 
 function App(props) {
 

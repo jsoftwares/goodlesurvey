@@ -14,7 +14,9 @@ router.get('/auth/google', passport.authenticate('google', {
  */
 router.get('/auth/google/callback', 
     passport.authenticate('google'),
-    (req, res) => {res.redirect('/home');}
+    (req, res) => {
+        res.redirect("/home");
+    }
 );
 
 router.get('/api/v1/current-user', (req, res) => {
