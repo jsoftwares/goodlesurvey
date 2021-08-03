@@ -28,6 +28,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(authRoutes);
+require('./routes/billing')(app);   //alternative way of setting up route. billing.js exports a fn that takes app
+
 if (process.env.NODE_ENV === 'production') {
     /**Express serves up production assets like our main.js file if it doesn't recognize the route:
      * Express checks if there are specific files that matches what d incoming request is looking for, if
@@ -45,8 +48,6 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-app.use(authRoutes);
-require('./routes/billing')(app);   //alternative way of setting up route. billing.js exports a fn that takes app
 
 const PORT = process.env.PORT || 5000;
 const start = async () => {
