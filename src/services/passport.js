@@ -5,7 +5,7 @@ const User = require('../models/User');
 
 
 
-/**serializeUser takes a fn which take d user model in an authentication flow & that generate some unique piece 
+/**serializeUser takes a fn which take d user model in an authentication flow & then generate some unique piece 
  * of identify information from it & Passport will stuff that into a cookie.
  * 1st argument is a user model we want passport to create a cookie for using d ID
 */
@@ -14,7 +14,7 @@ passport.serializeUser( (user, done) => {
 });
 
 /** DeserializeUser take d unique piece of identifier stored inside the cookie & turn it back to d actual user 
- * model. 1st argument is d token/ID passport stuff inside d cookie.
+ * model. 1st argument is d token/ID passport stuffs inside d cookie.
  * This passport deserialize process adds d user property to req object as REQ.USER. It also adds some fn like
  * logout()
 */
@@ -39,15 +39,11 @@ passport.deserializeUser( async (id, done) => {
     },
     async (accessToken, refreshToken, profile, done) => {
         const existingUser = await User.findOne({googleId: profile.id});
-        if (existingUser != null) {
-            // we already have a record with the given profile ID
-            //(null, existingUser) - we tell passport no error, we pass it d founf user
-            done(null, existingUser);
-        }else{
-            // No user record with this profile ID in DB, so create a new record
-            const user = await User.create({googleId: profile.id});
-            done(null, user);
-        }
+
+        if (existingUser != null) done(null, existingUser);
+
+        const user = await User.create({googleId: profile.id});
+        done(null, user);
     })
 
 );
