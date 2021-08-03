@@ -21,8 +21,8 @@ function App(props) {
       <BrowserRouter>
         <div>
           <Header />
-          <Route path="/" exact component={Landing} />
-          <Route path="/home" exact component={Dashboard} />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/home" component={Dashboard} />
         </div>
       </BrowserRouter>
 

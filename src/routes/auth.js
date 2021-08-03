@@ -12,10 +12,11 @@ router.get('/auth/google', passport.authenticate('google', {
  * it can read d user code in the callback URL & use that to return a profile to us from Google, then d next cb
  * middleware which redirects d request to '/home'
  */
-router.get('/auth/google/callback', 
+router.get(
+    '/auth/google/callback', 
     passport.authenticate('google'),
     (req, res) => {
-        res.redirect("/home");
+        res.redirect('/home');
     }
 );
 
