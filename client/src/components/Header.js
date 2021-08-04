@@ -25,7 +25,7 @@ const Header = props => {
     return (
         <nav>
             <div className="nav-wrapper">
-                <Link to={props.auth ? '/surveys':'/'} className="left brand-logo">goodle</Link>
+                <Link to={props.auth ? '/home':'/'} className="left brand-logo">goodle</Link>
                 <ul id="nav-mobile" className="right"> {/* hide-on-med-and-down */}
                     { redenderMenu() }
                 </ul>
