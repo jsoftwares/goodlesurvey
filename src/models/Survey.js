@@ -20,11 +20,11 @@ const surveySchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    user: {
+    _user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    sendDate: Date,
+    dateSent: Date,
     lastResponded: Date,
     open: {
         type: Boolean,
@@ -40,4 +40,4 @@ const surveySchema = new mongoose.Schema({
     }
 });
 
-mongoose.model('Survey', surveySchema);
+module.exports = mongoose.model('Survey', surveySchema);

@@ -8,6 +8,10 @@ import App from './components/App';
 import reducers from './reducers';
 import reportWebVitals from './reportWebVitals';
 
+// Remove after development
+import axios from 'axios';
+window.axios = axios;
+
 const store = createStore( reducers, {/**4 serverside rendering */}, applyMiddleware(reduxThunk));
 ReactDOM.render(
   <Provider store={store}>

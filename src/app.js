@@ -7,6 +7,7 @@ require('./services/passport'); //Not exporting/returning anything from our pass
 const keys = require('./config/keys');
 
 const authRoutes = require('./routes/auth');
+const surveyRoutes = require('./routes/survey');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(passport.session());
 
 app.use(authRoutes);
 require('./routes/billing')(app);   //alternative way of setting up route. billing.js exports a fn that takes app
+app.use(surveyRoutes);
 
 if (process.env.NODE_ENV === 'production') {
     /**Express serves up production assets like our main.js file if it doesn't recognize the route:
