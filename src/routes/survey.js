@@ -41,6 +41,12 @@ router.post('/api/v1/surveys', requireAuth, requireCredit, async (req, res)=>{
 
 router.get('/api/v1/surveys/thanks', (req, res) => {
     res.send('Thanks you for sharing your feedback.')
-})
+});
+
+
+router.post('/api/v1/surveys/webhooks', (req, res) => {
+    console.log(req.body);
+    res.send({});
+});
 
 module.exports = router;

@@ -366,8 +366,8 @@ module.exports = (survey) => {
                                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                       <tbody>
                                         <tr>
-                                          <td> <a href="${keys.redirectDomain}/api/v1/surveys/thanks" target="_blank">Yes</a> </td>
-                                          <td> <a href="${keys.redirectDomain}/api/v1/surveys/thanks" target="_blank">No</a> </td>
+                                          <td> <a href="${keys.redirectDomain}/api/v1/surveys/${survey.id}/yes" target="_blank">Yes</a> </td>
+                                          <td> <a href="${keys.redirectDomain}/api/v1/surveys/${survey.id}/no" target="_blank">No</a> </td>
                                         </tr>
                                       </tbody>
                                     </table>
