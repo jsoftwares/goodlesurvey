@@ -7,6 +7,8 @@ import * as actions from '../actions/index'
 import Header from "./Header";
 import Landing from './Landing';
 import Dashboard from './Dashboard';
+import SurveyNew from './survey/SurveyNew';
+
 
 function App(props) {
 
@@ -23,6 +25,7 @@ function App(props) {
           <Header />
           <Route exact path="/" component={Landing} />
           <Route exact path="/home" component={Dashboard} />
+          <Route exact path="/surveys/new" component={SurveyNew} />
         </div>
       </BrowserRouter>
 

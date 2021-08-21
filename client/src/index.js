@@ -15,9 +15,9 @@ window.axios = axios;
 const store = createStore( reducers, {/**4 serverside rendering */}, applyMiddleware(reduxThunk));
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <App />
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
   </Provider>,
   document.getElementById('root')
 );
