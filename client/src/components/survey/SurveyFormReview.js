@@ -42,6 +42,6 @@ const mapStateToProps = state => {
     return { formValues: state.form.surveyForm.values }
 };
 
-/**We wrap component with withRouter() so that it has some react router properties, eg. history() passed into
+/**We wrap component with withRouter() so that it has react router properties, eg. history() passed into
  * it as props. */
 export default connect(mapStateToProps, actions)(withRouter(SurveyFormReview));
